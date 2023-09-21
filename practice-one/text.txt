@@ -1,0 +1,20 @@
+// Вариант 1
+!async function () {
+    const result = []
+    for (const num of arr) {
+        result.push(num > 13 ? (`Good: ${num}`) : (`Bad: ${num}`))
+        await new Promise(resolve => setTimeout(resolve, 1000));
+    }
+    console.log(result.join(', ', result));
+}()
+
+// Вариант 2
+const promises = arr.map(num => new Promise(resolve => {
+    setTimeout(() => {
+        resolve(num > 13 ? `Good: ${num}` : `Bad: ${num}`);
+    }, 1000);
+}));
+
+Promise.all(promises).then(result => {
+    console.log(result.join(', '));
+});
