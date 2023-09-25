@@ -1,3 +1,3 @@
 # theory
 Тестовое задание от ЮНИМЕХАНИК
-https://bohdankabanovprof.github.io/theory/
+https://bogdan-kabanov.github.io/theory/
