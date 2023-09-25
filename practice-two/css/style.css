@@ -17,7 +17,7 @@ button {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding: 30px;
 }
 
@@ -102,7 +102,8 @@ button {
     margin-top: 35px;
     display: grid;
     grid-template-columns: minmax(auto, 362px) 1fr;
-    column-gap: 32px;
+    -moz-column-gap: 32px;
+         column-gap: 32px;
 }
 
 .popup-content .btn__purple {
@@ -201,6 +202,42 @@ button {
     text-align: start;
 }
 
+.input-wrapper__input:invalid {
+    box-shadow: none;
+}
+
+.input-wrapper .input-wrapper__input::-webkit-input-placeholder {
+    font-family: 'PT Sans', sans-serif;
+    color: #0C1014;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.input-wrapper .input-wrapper__input::-moz-placeholder {
+    font-family: 'PT Sans', sans-serif;
+    color: #0C1014;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.input-wrapper .input-wrapper__input:-ms-input-placeholder {
+    font-family: 'PT Sans', sans-serif;
+    color: #0C1014;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.input-wrapper .input-wrapper__input::-ms-input-placeholder {
+    font-family: 'PT Sans', sans-serif;
+    color: #0C1014;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+
 .input-wrapper .input-wrapper__input::placeholder {
     font-family: 'PT Sans', sans-serif;
     color: #0C1014;
@@ -215,7 +252,8 @@ button {
 }
 
 .input-wrapper__not-valided {
-    filter: drop-shadow(0px 0px 3px rgba(255, 0, 0, 0.15)) drop-shadow(0px 0px 6px rgba(255, 0, 0, 0.13)) drop-shadow(0px 0px 8px rgba(255, 0, 0, 0.08)) drop-shadow(0px 0px 9px rgba(255, 0, 0, 0.02)) drop-shadow(0px 0px 10px rgba(255, 0, 0, 0.00))
+    -webkit-filter: drop-shadow(0px 0px 3px rgba(255, 0, 0, 0.15)) drop-shadow(0px 0px 6px rgba(255, 0, 0, 0.13)) drop-shadow(0px 0px 8px rgba(255, 0, 0, 0.08)) drop-shadow(0px 0px 9px rgba(255, 0, 0, 0.02)) drop-shadow(0px 0px 10px rgba(255, 0, 0, 0.00));
+            filter: drop-shadow(0px 0px 3px rgba(255, 0, 0, 0.15)) drop-shadow(0px 0px 6px rgba(255, 0, 0, 0.13)) drop-shadow(0px 0px 8px rgba(255, 0, 0, 0.08)) drop-shadow(0px 0px 9px rgba(255, 0, 0, 0.02)) drop-shadow(0px 0px 10px rgba(255, 0, 0, 0.00))
 }
 
 .necessarily-icon {
@@ -275,7 +313,8 @@ button {
     font-size: 18.667px;
     font-style: normal;
     font-weight: 400;
-    text-decoration-line: underline;
+    -webkit-text-decoration-line: underline;
+            text-decoration-line: underline;
 }
 
 .insert-logo__image {

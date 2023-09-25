@@ -4,6 +4,26 @@ if (inset_img != null) {
     const defaultImage = computedStyle.getPropertyValue('background-image');
 }
 
+
+const popUpInput = document.querySelectorAll('.popup_back-drop');
+popUpInput.forEach(popup => {
+    const inputList = popup.querySelectorAll('.input-wrapper__input')
+    inputList.forEach(input => {
+        const type = input.getAttribute('data-type-phone');
+        if (type != null) {
+            input.addEventListener('input', () => {
+                const value = input.value;
+                if(value[0] !== '+') {
+                    input.value = `+7${value}`;
+                }
+                if (value.length === 1 && value !== '+') {
+                    input.value = `+7${value}`;
+                }
+            });
+        }
+    })
+})
+
 function handleFileSelect(event) {
     const btn = event.target.parentNode.querySelector('.clear-isert-logo');
     btn.classList.add('clear-isert-logo__active');
@@ -24,6 +44,7 @@ function clearFileSelect(event) {
 
 function handlerForm(event) {
     event.preventDefault()
+
     let inputs = []
     let textInputs = event.target.querySelectorAll(`.input-wrapper__input`);
     textInputs.forEach(input => {
@@ -35,15 +56,17 @@ function handlerForm(event) {
 }
 
 function checkInputValid(input) {
-    console.log(input);
     let notEmptyInput = 0
     let value = input.value
+
     if (isNaN(value) && !input.classList.contains('drop-down-value') && value != 'Выберите направление') {
         notEmptyInput++
         input.closest('.input-wrapper')?.classList.remove('input-wrapper__not-valided')
-    } else {
+    } else if (!input.reportValidity()) {
         input.closest('.input-wrapper')?.classList.add('input-wrapper__not-valided')
     }
+
+    console.log(input.value);
 }
 
 function closedActivePopUp() {

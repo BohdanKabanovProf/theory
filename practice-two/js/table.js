@@ -1,4 +1,5 @@
 let posts = [];
+let all_posts = []
 const search = document.querySelector('.search-table');
 const table = document.querySelector('.table')
 function fetchData() {
@@ -6,6 +7,7 @@ function fetchData() {
         .then(response => response.json())
         .then(data => {
             posts = data;
+            all_posts = data
             uploadContentFromTable(posts, table);
         })
         .catch(error => console.error(error));
@@ -33,7 +35,7 @@ function uploadContentFromTable(data, table) {
 const headers = table.querySelector('thead')?.querySelectorAll('th');
 headers?.forEach(header => {
     header.addEventListener('click', () => {
-        search.value = ''
+        // search.value = ''
         const tbody = table.querySelector('tbody')
         const column = header.getAttribute('data-column');
         const order = header.getAttribute('data-order', 'desc');
@@ -45,15 +47,15 @@ headers?.forEach(header => {
 
 search.addEventListener('input', (search) => {
     const query = search.target.value.replace(/(\r\n|\n|\r)/gm, ' ').toUpperCase()
-    const filteredData = posts.filter(post => {
-        console.log(post.body.replace(/(\r\n|\n|\r)/gm, ' ').toUpperCase());
+    const filteredData = all_posts.filter(post => {
         return post.title.replace(/(\r\n|\n|\r)/gm, ' ').toUpperCase().includes(query) || post.body.replace(/(\r\n|\n|\r)/gm, '').toUpperCase().includes(query);
     });
-
     if (query.length >= 3) {
+        posts = filteredData
         uploadContentFromTable(filteredData, table)
     } else {
-        uploadContentFromTable(posts, table)
+        posts = all_posts
+        uploadContentFromTable(all_posts, table)
     }
 })
 

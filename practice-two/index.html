@@ -19,7 +19,7 @@
                 <div class="popup-wrapper">
                     <div class="popup-content">
                         <span class="popup-title">Стать партнёром проекта</span>
-                        <form action="" onsubmit="handlerForm(event)">
+                        <form action="" onsubmit="handlerForm(event)" novalidate>
                             <div class="popup-row">
                                 <div class="popup-col">
                                     <label for="organization" class="input-wrapper">
@@ -27,21 +27,21 @@
                                             организации</span>
                                         <div class="input-row">
                                             <input id="organization" type="text" placeholder="ООО"
-                                                class="input-wrapper__input" min="3" max="32">
+                                                class="input-wrapper__input" min="3" max="32" required>
                                         </div>
                                     </label>
                                     <label for="phone" class="input-wrapper">
                                         <span class="input-inf"><span class="necessarily-icon">✱</span> Телефон</span>
                                         <div class="input-row">
-                                            <input id="phone" type="text" placeholder="+7(___) ___ __ __"
-                                                class="input-wrapper__input">
+                                            <input id="phone" data-type-phone=true type="text" placeholder="+7(___) ___ __ __"
+                                                class="input-wrapper__input" required>
                                         </div>
                                     </label>
                                     <label for="email" class="input-wrapper">
                                         <span class="input-inf"><span class="necessarily-icon">✱</span> E-mail</span>
                                         <div class="input-row">
                                             <input id="email" type="text" placeholder="main@mail.com"
-                                                class="input-wrapper__input">
+                                                class="input-wrapper__input" required>
                                         </div>
                                     </label>
                                 </div>
@@ -62,7 +62,7 @@
                                             </div>
                                         </div>
                                         <input type="file" name="logo" id="organization-logo" accept=".png, .jpg, .jpeg"
-                                            onchange="handleFileSelect(event)">
+                                            onchange="handleFileSelect(event)" required>
                                         <button type="button" class="clear-isert-logo" onclick="clearFileSelect(event)">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37"
                                                 viewBox="0 0 37 37" fill="none">
@@ -156,11 +156,11 @@
                                         </div>
                                     </label>
                                     <label for="supervisor" class="input-wrapper">
-                                        <span class="input-inf"><span
-                                                class="necessarily-icon">✱</span>Руководитель</span>
+                                        <span class="input-inf"><span class="necessarily-icon">✱</span> Руководитель
+                                            организации</span>
                                         <div class="input-row">
                                             <input id="supervisor" type="text" placeholder="Александров Иван Васильевич"
-                                                class="input-wrapper__input">
+                                                class="input-wrapper__input" required>
                                         </div>
                                     </label>
                                     <button class="btn__purple" type="submit">Стать партнёром</button>
